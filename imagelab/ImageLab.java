@@ -47,7 +47,7 @@ public class ImageLab {
     /** Holds the actual filter objects. */
     private static List<ImageFilter> filters;
 
-    public static ImgProvider getImpro() {
+    private static ImgProvider getImpro() {
         return impro;
     }
 
