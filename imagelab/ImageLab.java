@@ -56,7 +56,7 @@ public class ImageLab {
     }
 
     /** The current image provider. */
-    private static ImgProvider impro;
+    public static ImgProvider impro;
 
     /** A copy of <CODE>this</CODE>. */
     private static ImageLab theLab;
