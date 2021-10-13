@@ -50,6 +50,17 @@ public class ImageLab {
     /** The current image provider. */
     public static ImgProvider impro;
 
+    /** getter for ImgProvider impro.
+     *  @return the impro for getter method. **/
+    public  static ImgProvider getImpro() {
+        return impro;
+    }
+    /** getter for ImgProvider impro.
+     * @param improVal to set impro value and avoid checkstyle error.s **/
+    public static void setImpro(final ImgProvider improVal) {
+        ImageLab.impro = improVal;
+    }
+
     /** A copy of <CODE>this</CODE>. */
     private static ImageLab theLab;
 
