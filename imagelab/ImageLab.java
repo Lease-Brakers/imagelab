@@ -48,7 +48,18 @@ public class ImageLab {
     private static List<ImageFilter> filters;
 
     /** The current image provider. */
-    public static ImgProvider impro;
+    private static ImgProvider impro;
+
+    /** getter for ImgProvider impro.
+     *  @return the impro for getter method. **/
+    public  static ImgProvider getImpro() {
+        return impro;
+    }
+    /** getter for ImgProvider impro.
+     * @param improVal to set impro value and avoid checkstyle error.s **/
+    public static void setImpro(final ImgProvider improVal) {
+        ImageLab.impro = improVal;
+    }
 
     /** A copy of <CODE>this</CODE>. */
     private static ImageLab theLab;
@@ -99,7 +110,7 @@ public class ImageLab {
                         ImgProvider improvider;
                         FileDialog fd;
                         fd = new FileDialog(frame,
-                        "Pick an image", FileDialog.LOAD);
+                                "Pick an image", FileDialog.LOAD);
                         fd.setVisible(true);
                         String theFile = fd.getFile();
                         String theDir = fd.getDirectory();
@@ -153,7 +164,7 @@ public class ImageLab {
         file.add(quit);
         quit.addActionListener(new ActionListener() {
                                    public void actionPerformed(
-                                       final ActionEvent actev) {
+                                           final ActionEvent actev) {
                                        System.exit(0);
                                    }
                                }
@@ -185,7 +196,7 @@ public class ImageLab {
                     boolean isFilter = false;
                     for (int j = 0; j < interfaces.length; j++) {
                         isFilter |= interfaces[j].getName().equals(
-                            "imagelab.ImageFilter");
+                                "imagelab.ImageFilter");
                     } //for ja
                     if (isFilter) {
                         ifilter = (ImageFilter) cl.getDeclaredConstructor().newInstance();
