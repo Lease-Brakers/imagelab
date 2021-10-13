@@ -47,16 +47,19 @@ public class ImageLab {
     /** Holds the actual filter objects. */
     private static List<ImageFilter> filters;
 
+    /** The current image provider. */
+    private static ImgProvider impro;
+
+    /** getter for ImgProvider impro.
+     *  @return the impro for getter method. **/
     public  static ImgProvider getImpro() {
         return impro;
     }
-
-    public static void setImpro(ImgProvider impro) {
-        ImageLab.impro = impro;
+    /** getter for ImgProvider impro.
+     * @param improVal to set impro value and avoid checkstyle error.s **/
+    public static void setImpro(final ImgProvider improVal) {
+        ImageLab.impro = improVal;
     }
-
-    /** The current image provider. */
-    private static ImgProvider impro;
 
     /** A copy of <CODE>this</CODE>. */
     private static ImageLab theLab;
