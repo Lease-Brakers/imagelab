@@ -427,7 +427,7 @@ public class ImgProvider extends JComponent {
     public void setInactive() {
         if (lab != null) {
             lab.setInactive(this);
-            ImageLab.impro = null;
+            //ImageLab.impro = null;
         } else {
             System.err.println("*** error ** ImgProvider:setInactive - no "
                     + "lab");
