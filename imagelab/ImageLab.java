@@ -46,9 +46,20 @@ public class ImageLab {
 
     /** Holds the actual filter objects. */
     private static List<ImageFilter> filters;
-
+ 
     /** The current image provider. */
-    public static ImgProvider impro;
+    private static ImgProvider impro;
+
+    /** getter for ImgProvider impro.
+     *  @return the impro for getter method. **/
+    public  static ImgProvider getImpro() {
+        return impro;
+    }
+    /** getter for ImgProvider impro.
+     * @param improVal to set impro value and avoid checkstyle error.s **/
+    public static void setImpro(final ImgProvider improVal) {
+        ImageLab.impro = improVal;
+    }
 
     /** A copy of <CODE>this</CODE>. */
     private static ImageLab theLab;
@@ -99,7 +110,7 @@ public class ImageLab {
                         ImgProvider improvider;
                         FileDialog fd;
                         fd = new FileDialog(frame,
-                        "Pick an image", FileDialog.LOAD);
+                                "Pick an image", FileDialog.LOAD);
                         fd.setVisible(true);
                         String theFile = fd.getFile();
                         String theDir = fd.getDirectory();
@@ -153,7 +164,7 @@ public class ImageLab {
         file.add(quit);
         quit.addActionListener(new ActionListener() {
                                    public void actionPerformed(
-                                       final ActionEvent actev) {
+                                           final ActionEvent actev) {
                                        System.exit(0);
                                    }
                                }
@@ -185,10 +196,11 @@ public class ImageLab {
                     boolean isFilter = false;
                     for (int j = 0; j < interfaces.length; j++) {
                         isFilter |= interfaces[j].getName().equals(
-                            "imagelab.ImageFilter");
+                                "imagelab.ImageFilter");
                     } //for ja
                     if (isFilter) {
-                        ifilter = (ImageFilter) cl.getDeclaredConstructor().newInstance();
+                        ifilter = (ImageFilter) cl.getDeclaredConstructor()
+                                .newInstance();
                         filters.add(ifilter);
                         JMenuItem jmi = new JMenuItem(ifilter.getMenuLabel());
                         filter.add(jmi);
@@ -263,7 +275,8 @@ public class ImageLab {
         return new ActionListener() {
             public void actionPerformed(final ActionEvent ev) {
                 if (impro == null) {
-                    JOptionPane.showMessageDialog(myframe, "You must first select an image");
+                    JOptionPane.showMessageDialog(myframe,
+                            "You must first select an image");
                     return;
                 }
                 //System.out.println("Using impro number " + impro.getid());
@@ -332,7 +345,8 @@ public class ImageLab {
                 //The imgProvider holding the image
                 ImgProvider improvider = impro;
                 if (improvider == null) {
-                    JOptionPane.showMessageDialog(myframe, "First select the image to play");
+                    JOptionPane.showMessageDialog(myframe,
+                            "First select the image to play");
                     return;
                 } //if
                 improvider.play();
@@ -351,7 +365,8 @@ public class ImageLab {
             public void actionPerformed(final ActionEvent e) {
                 ImgProvider improvider = impro; // Hold the image.
                 if (improvider == null) {
-                    JOptionPane.showMessageDialog(myframe, "Select the image to save");
+                    JOptionPane.showMessageDialog(myframe,
+                            "Select the image to save");
                     return;
                 } //if
                 improvider.save();
